@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -414,7 +413,7 @@ const AdmissionsPage = () => {
                         <td className="py-2 px-4 border-b text-right">50% tuition fee waiver</td>
                       </tr>
                       <tr>
-                        <td className="py-2 px-4 border-b">JEE Main (All India Rank) < 10,000</td>
+                        <td className="py-2 px-4 border-b">JEE Main (All India Rank) &lt; 10000</td>
                         <td className="py-2 px-4 border-b text-right">100% tuition fee waiver</td>
                       </tr>
                     </tbody>
