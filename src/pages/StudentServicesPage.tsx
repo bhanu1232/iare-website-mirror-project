@@ -23,7 +23,7 @@ const StudentServicesPage = () => {
       title: 'Placements',
       description: 'Campus placement, training programs, recruitment and career guidance.',
       icon: <Briefcase className="h-10 w-10 text-iare-blue" />,
-      link: '/student-services/placements'
+      link: '/placements'
     },
     {
       title: 'Hostel',
@@ -48,7 +48,7 @@ const StudentServicesPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       {/* Page Banner */}
       <div className="bg-gradient-to-r from-iare-blue to-iare-darkblue py-12 text-white">
         <div className="container mx-auto px-4">
@@ -56,14 +56,14 @@ const StudentServicesPage = () => {
           <p className="text-lg">Support services for students to enhance their academic journey</p>
         </div>
       </div>
-      
+
       {/* Services Section */}
       <div className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Link 
-                to={service.link} 
+              <Link
+                to={service.link}
                 key={index}
                 className="bg-white rounded-lg shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
               >
@@ -79,7 +79,7 @@ const StudentServicesPage = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Student Support */}
       <div className="py-12 bg-white">
         <div className="container mx-auto px-4">
@@ -97,7 +97,7 @@ const StudentServicesPage = () => {
           </div>
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

@@ -5,19 +5,19 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const slides = [
   {
     id: 1,
-    image: 'https://www.iare.ac.in/sites/default/files/slides/IARE-Campus.jpeg',
+    image: 'https://images.shiksha.com/mediadata/images/1551849053php2uy9jd.jpeg',
     title: 'Institute of Aeronautical Engineering',
     subtitle: 'Engineering a Better Future',
   },
   {
     id: 2,
-    image: 'https://www.iare.ac.in/sites/default/files/slides/IARE-Buildings.jpeg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmsitksgRu884JwCFXwmuPlbgkZ2V_KIfRIQ&s',
     title: 'Modern Campus',
     subtitle: 'State-of-the-art facilities for quality education',
   },
   {
     id: 3,
-    image: 'https://www.iare.ac.in/sites/default/files/slides/IARE-Labs.jpeg',
+    image: 'https://svuniversity.edu.in/storage/2021/12/DSC04932-1024x683.jpg',
     title: 'Advanced Labs',
     subtitle: 'Hands-on learning with cutting-edge equipment',
   },
@@ -44,9 +44,8 @@ const HeroSlider = () => {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
         >
           <div
             className="absolute inset-0 bg-center bg-cover"
@@ -78,9 +77,8 @@ const HeroSlider = () => {
         {slides.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide ? 'bg-white scale-125' : 'bg-white bg-opacity-50'
-            }`}
+            className={`w-3 h-3 rounded-full transition-all ${index === currentSlide ? 'bg-white scale-125' : 'bg-white bg-opacity-50'
+              }`}
             onClick={() => setCurrentSlide(index)}
           ></button>
         ))}
