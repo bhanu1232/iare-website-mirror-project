@@ -34,7 +34,7 @@ const Header = () => {
           <div className="flex space-x-4">
             <a href="#" className="hover:underline">Alumni</a>
             <a href="#" className="hover:underline">Careers</a>
-            <a href="#" className="hover:underline">Contact</a>
+            <Link to="/contact" className="hover:underline">Contact</Link>
           </div>
         </div>
       </div>
@@ -52,20 +52,36 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <NavItem title="About" links={[
-              'Vision & Mission', 'Governing Body', 'Chairman', 'Principal', 'Administration'
+            <NavItem title="About" to="/about" links={[
+              { name: 'Vision & Mission', url: '/about#vision' },
+              { name: 'Governing Body', url: '/about#governing' },
+              { name: 'Chairman', url: '/about#chairman' },
+              { name: 'Principal', url: '/about#principal' },
+              { name: 'Administration', url: '/about#administration' }
             ]} />
-            <NavItem title="Academics" links={[
-              'Programs', 'Departments', 'Academic Calendar', 'Regulations'
+            <NavItem title="Academics" to="/academics" links={[
+              { name: 'Programs', url: '/academics#programs' },
+              { name: 'Departments', url: '/academics#departments' },
+              { name: 'Academic Calendar', url: '/academics#calendar' },
+              { name: 'Regulations', url: '/academics#regulations' }
             ]} />
-            <NavItem title="Admissions" links={[
-              'UG Admissions', 'PG Admissions', 'Fee Structure', 'Scholarships'
+            <NavItem title="Admissions" to="/admissions" links={[
+              { name: 'UG Admissions', url: '/admissions#ug' },
+              { name: 'PG Admissions', url: '/admissions#pg' },
+              { name: 'Fee Structure', url: '/admissions#fees' },
+              { name: 'Scholarships', url: '/admissions#scholarships' }
             ]} />
-            <NavItem title="Research" links={[
-              'Research Centers', 'Publications', 'Patents', 'Funded Projects'
+            <NavItem title="Research" to="/research" links={[
+              { name: 'Research Centers', url: '/research#centers' },
+              { name: 'Publications', url: '/research#publications' },
+              { name: 'Patents', url: '/research#patents' },
+              { name: 'Funded Projects', url: '/research#projects' }
             ]} />
-            <NavItem title="Campus Life" links={[
-              'Clubs', 'Events', 'Sports', 'Facilities'
+            <NavItem title="Campus Life" to="/campus-life" links={[
+              { name: 'Clubs', url: '/campus-life#clubs' },
+              { name: 'Events', url: '/campus-life#events' },
+              { name: 'Sports', url: '/campus-life#sports' },
+              { name: 'Facilities', url: '/campus-life#facilities' }
             ]} />
             <div className="flex items-center ml-4">
               <button className="text-iare-blue hover:text-iare-darkblue">
@@ -104,21 +120,64 @@ const Header = () => {
               </button>
             </div>
             <div className="space-y-4">
-              <MobileNavItem title="About" links={[
-                'Vision & Mission', 'Governing Body', 'Chairman', 'Principal', 'Administration'
-              ]} />
-              <MobileNavItem title="Academics" links={[
-                'Programs', 'Departments', 'Academic Calendar', 'Regulations'
-              ]} />
-              <MobileNavItem title="Admissions" links={[
-                'UG Admissions', 'PG Admissions', 'Fee Structure', 'Scholarships'
-              ]} />
-              <MobileNavItem title="Research" links={[
-                'Research Centers', 'Publications', 'Patents', 'Funded Projects'
-              ]} />
-              <MobileNavItem title="Campus Life" links={[
-                'Clubs', 'Events', 'Sports', 'Facilities'
-              ]} />
+              <MobileNavItem 
+                title="About" 
+                to="/about" 
+                links={[
+                  { name: 'Vision & Mission', url: '/about#vision' },
+                  { name: 'Governing Body', url: '/about#governing' },
+                  { name: 'Chairman', url: '/about#chairman' },
+                  { name: 'Principal', url: '/about#principal' },
+                  { name: 'Administration', url: '/about#administration' }
+                ]} 
+              />
+              <MobileNavItem 
+                title="Academics" 
+                to="/academics" 
+                links={[
+                  { name: 'Programs', url: '/academics#programs' },
+                  { name: 'Departments', url: '/academics#departments' },
+                  { name: 'Academic Calendar', url: '/academics#calendar' },
+                  { name: 'Regulations', url: '/academics#regulations' }
+                ]} 
+              />
+              <MobileNavItem 
+                title="Admissions" 
+                to="/admissions" 
+                links={[
+                  { name: 'UG Admissions', url: '/admissions#ug' },
+                  { name: 'PG Admissions', url: '/admissions#pg' },
+                  { name: 'Fee Structure', url: '/admissions#fees' },
+                  { name: 'Scholarships', url: '/admissions#scholarships' }
+                ]} 
+              />
+              <MobileNavItem 
+                title="Research" 
+                to="/research" 
+                links={[
+                  { name: 'Research Centers', url: '/research#centers' },
+                  { name: 'Publications', url: '/research#publications' },
+                  { name: 'Patents', url: '/research#patents' },
+                  { name: 'Funded Projects', url: '/research#projects' }
+                ]} 
+              />
+              <MobileNavItem 
+                title="Campus Life" 
+                to="/campus-life" 
+                links={[
+                  { name: 'Clubs', url: '/campus-life#clubs' },
+                  { name: 'Events', url: '/campus-life#events' },
+                  { name: 'Sports', url: '/campus-life#sports' },
+                  { name: 'Facilities', url: '/campus-life#facilities' }
+                ]} 
+              />
+              <Link 
+                to="/contact" 
+                className="block py-2 text-iare-blue font-medium"
+                onClick={toggleMenu}
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>
@@ -127,7 +186,12 @@ const Header = () => {
   );
 };
 
-const NavItem = ({ title, links }: { title: string, links: string[] }) => {
+interface NavLink {
+  name: string;
+  url: string;
+}
+
+const NavItem = ({ title, to, links }: { title: string, to: string, links: NavLink[] }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -136,21 +200,21 @@ const NavItem = ({ title, links }: { title: string, links: string[] }) => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center text-gray-800 hover:text-iare-blue font-medium">
+      <Link to={to} className="flex items-center text-gray-800 hover:text-iare-blue font-medium">
         {title}
         <ChevronDown className="h-4 w-4 ml-1" />
-      </button>
+      </Link>
       {isOpen && (
         <div className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden z-50">
           <div className="py-2">
             {links.map((link, index) => (
-              <a
+              <Link
                 key={index}
-                href="#"
+                to={link.url}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-iare-blue hover:text-white"
               >
-                {link}
-              </a>
+                {link.name}
+              </Link>
             ))}
           </div>
         </div>
@@ -159,28 +223,36 @@ const NavItem = ({ title, links }: { title: string, links: string[] }) => {
   );
 };
 
-const MobileNavItem = ({ title, links }: { title: string, links: string[] }) => {
+interface MobileNavItemProps {
+  title: string;
+  to: string;
+  links: NavLink[];
+}
+
+const MobileNavItem = ({ title, to, links }: MobileNavItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-      <button
-        className="flex items-center justify-between w-full py-2 text-gray-800 font-medium"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {title}
-        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? 'transform rotate-180' : ''}`} />
-      </button>
+      <div className="flex items-center justify-between w-full py-2">
+        <Link to={to} className="text-gray-800 font-medium">{title}</Link>
+        <button 
+          className="text-gray-500"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? 'transform rotate-180' : ''}`} />
+        </button>
+      </div>
       {isOpen && (
         <div className="pl-4 mt-2 space-y-2">
           {links.map((link, index) => (
-            <a
+            <Link
               key={index}
-              href="#"
+              to={link.url}
               className="block py-2 text-sm text-gray-700 hover:text-iare-blue"
             >
-              {link}
-            </a>
+              {link.name}
+            </Link>
           ))}
         </div>
       )}

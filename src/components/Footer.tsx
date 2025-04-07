@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Linkedin, Instagram, ExternalLink } from 'lucide-react';
 
 const Footer = () => {
@@ -32,34 +33,34 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white flex items-center">
+                <Link to="/about" className="text-gray-400 hover:text-white flex items-center">
                   <ExternalLink className="h-4 w-4 mr-2" /> About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white flex items-center">
+                <Link to="/admissions" className="text-gray-400 hover:text-white flex items-center">
                   <ExternalLink className="h-4 w-4 mr-2" /> Admissions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white flex items-center">
+                <Link to="/academics" className="text-gray-400 hover:text-white flex items-center">
                   <ExternalLink className="h-4 w-4 mr-2" /> Academics
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white flex items-center">
+                <Link to="/research" className="text-gray-400 hover:text-white flex items-center">
                   <ExternalLink className="h-4 w-4 mr-2" /> Research
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white flex items-center">
-                  <ExternalLink className="h-4 w-4 mr-2" /> Placements
-                </a>
+                <Link to="/campus-life" className="text-gray-400 hover:text-white flex items-center">
+                  <ExternalLink className="h-4 w-4 mr-2" /> Campus Life
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white flex items-center">
+                <Link to="/contact" className="text-gray-400 hover:text-white flex items-center">
                   <ExternalLink className="h-4 w-4 mr-2" /> Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
