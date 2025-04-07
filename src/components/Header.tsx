@@ -47,18 +47,18 @@ const Header = () => {
             <img 
               src="https://www.iare.ac.in/sites/default/files/IARE-Logonew.png" 
               alt="IARE Logo" 
-              className="h-12" 
+              className="h-10" 
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-4">
             <NavItem title="About" to="/about" links={[
-              { name: 'Vision & Mission', url: '/about#vision' },
-              { name: 'Governing Body', url: '/about#governing' },
-              { name: 'Chairman', url: '/about#chairman' },
-              { name: 'Principal', url: '/about#principal' },
-              { name: 'Administration', url: '/about#administration' }
+              { name: 'Vision & Mission', url: '/about/vision-mission' },
+              { name: 'Governing Body', url: '/about/governing-body' },
+              { name: 'Chairman', url: '/about/chairman' },
+              { name: 'Principal', url: '/about/principal' },
+              { name: 'Administration', url: '/about/administration' }
             ]} />
             <NavItem title="Academics" to="/academics" links={[
               { name: 'Programs', url: '/academics#programs' },
@@ -78,10 +78,15 @@ const Header = () => {
               { name: 'Patents', url: '/research#patents' },
               { name: 'Funded Projects', url: '/research#projects' }
             ]} />
+            <NavItem title="Placements" to="/placements" links={[
+              { name: 'Overview', url: '/placements/overview' },
+              { name: 'Statistics', url: '/placements/statistics' },
+              { name: 'Companies', url: '/placements/companies' },
+              { name: 'Training Programs', url: '/placements/training' }
+            ]} />
             <NavItem title="Student Services" to="/student-services" links={[
               { name: 'Examination', url: '/student-services/examination' },
               { name: 'Library', url: '/student-services/library' },
-              { name: 'Placements', url: '/student-services/placements' },
               { name: 'Hostel', url: '/student-services/hostel' },
               { name: 'Transportation', url: '/student-services/transportation' },
               { name: 'Scholarships', url: '/student-services/scholarships' }
@@ -92,7 +97,7 @@ const Header = () => {
               { name: 'Sports', url: '/campus-life#sports' },
               { name: 'Facilities', url: '/campus-life#facilities' }
             ]} />
-            <div className="flex items-center ml-4">
+            <div className="flex items-center ml-2">
               <button className="text-iare-blue hover:text-iare-darkblue">
                 <Search className="h-5 w-5" />
               </button>
@@ -118,7 +123,7 @@ const Header = () => {
                 <img 
                   src="https://www.iare.ac.in/sites/default/files/IARE-Logonew.png" 
                   alt="IARE Logo" 
-                  className="h-12" 
+                  className="h-10" 
                 />
               </Link>
               <button
@@ -133,11 +138,11 @@ const Header = () => {
                 title="About" 
                 to="/about" 
                 links={[
-                  { name: 'Vision & Mission', url: '/about#vision' },
-                  { name: 'Governing Body', url: '/about#governing' },
-                  { name: 'Chairman', url: '/about#chairman' },
-                  { name: 'Principal', url: '/about#principal' },
-                  { name: 'Administration', url: '/about#administration' }
+                  { name: 'Vision & Mission', url: '/about/vision-mission' },
+                  { name: 'Governing Body', url: '/about/governing-body' },
+                  { name: 'Chairman', url: '/about/chairman' },
+                  { name: 'Principal', url: '/about/principal' },
+                  { name: 'Administration', url: '/about/administration' }
                 ]} 
                 closeMenu={toggleMenu}
               />
@@ -175,12 +180,22 @@ const Header = () => {
                 closeMenu={toggleMenu}
               />
               <MobileNavItem 
+                title="Placements" 
+                to="/placements" 
+                links={[
+                  { name: 'Overview', url: '/placements/overview' },
+                  { name: 'Statistics', url: '/placements/statistics' },
+                  { name: 'Companies', url: '/placements/companies' },
+                  { name: 'Training Programs', url: '/placements/training' }
+                ]} 
+                closeMenu={toggleMenu}
+              />
+              <MobileNavItem 
                 title="Student Services" 
                 to="/student-services" 
                 links={[
                   { name: 'Examination', url: '/student-services/examination' },
                   { name: 'Library', url: '/student-services/library' },
-                  { name: 'Placements', url: '/student-services/placements' },
                   { name: 'Hostel', url: '/student-services/hostel' },
                   { name: 'Transportation', url: '/student-services/transportation' },
                   { name: 'Scholarships', url: '/student-services/scholarships' }
@@ -233,13 +248,13 @@ const NavItem = ({ title, to, links }: { title: string, to: string, links: NavLi
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <Link to={to} className="flex items-center text-gray-800 hover:text-iare-blue font-medium">
+      <Link to={to} className="flex items-center text-gray-800 hover:text-iare-blue font-medium px-2 py-1">
         {title}
         <ChevronDown className="h-4 w-4 ml-1" />
       </Link>
       {isHovering && (
         <div 
-          className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden z-50"
+          className="absolute left-0 w-64 bg-white shadow-lg rounded-md overflow-hidden z-50"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
