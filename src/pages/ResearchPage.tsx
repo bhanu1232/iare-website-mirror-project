@@ -3,8 +3,7 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { Home, BookOpen, Flask, Award, FileText } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Home, BookOpen, Award, Lightbulb, FileText, BookMarked } from 'lucide-react';
 
 const ResearchPage = () => {
   return (
@@ -27,441 +26,286 @@ const ResearchPage = () => {
           </BreadcrumbList>
         </Breadcrumb>
         
-        <h1 className="text-3xl font-bold text-iare-blue mb-6">Research at IARE</h1>
+        <h1 className="text-3xl font-bold text-iare-blue mb-8">Research at IARE</h1>
         
-        <Tabs defaultValue="centers">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8">
-            <TabsTrigger value="centers">Research Centers</TabsTrigger>
-            <TabsTrigger value="publications">Publications</TabsTrigger>
-            <TabsTrigger value="patents">Patents</TabsTrigger>
-            <TabsTrigger value="projects">Funded Projects</TabsTrigger>
-          </TabsList>
+        <div className="mb-12 bg-white rounded-lg shadow-md p-6">
+          <p className="text-lg text-gray-700 mb-6">
+            The Institute of Aeronautical Engineering is committed to advancing knowledge through innovative research across various disciplines. Our research centers provide state-of-the-art facilities and support for faculty and students to explore new ideas and develop solutions to real-world problems.
+          </p>
           
-          <TabsContent value="centers" className="space-y-6">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-semibold text-iare-blue mb-4">Research Centers of Excellence</h2>
-              <p className="text-gray-700 mb-6">
-                IARE has established several Centers of Excellence to promote research and innovation in various domains. These centers provide state-of-the-art facilities and infrastructure to support cutting-edge research by faculty and students.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <ResearchCenterCard 
-                  title="Center for Artificial Intelligence and Machine Learning" 
-                  icon={<BookOpen className="h-10 w-10 text-iare-blue" />}
-                  description="Focuses on developing intelligent systems, deep learning algorithms, computer vision, and natural language processing applications."
-                  areas={["Deep Learning", "Computer Vision", "Natural Language Processing", "Reinforcement Learning"]}
-                />
-                
-                <ResearchCenterCard 
-                  title="Center for IoT and Embedded Systems" 
-                  icon={<Flask className="h-10 w-10 text-iare-blue" />}
-                  description="Works on developing IoT solutions, embedded systems, and their applications in various domains like healthcare, agriculture, and smart cities."
-                  areas={["IoT Architectures", "Embedded Systems", "Sensor Networks", "Edge Computing"]}
-                />
-                
-                <ResearchCenterCard 
-                  title="Center for VLSI and Nanotechnology" 
-                  icon={<Award className="h-10 w-10 text-iare-blue" />}
-                  description="Focuses on research in VLSI design, microelectronics, nanoelectronics, and semiconductor technologies."
-                  areas={["VLSI Design", "Microelectronics", "Nanoelectronics", "Semiconductor Devices"]}
-                />
-                
-                <ResearchCenterCard 
-                  title="Center for Robotics and Automation" 
-                  icon={<FileText className="h-10 w-10 text-iare-blue" />}
-                  description="Conducts research in robotics, automation, mechatronics, and their applications in industrial and service sectors."
-                  areas={["Industrial Robotics", "Service Robots", "Automation", "Mechatronics"]}
-                />
-                
-                <ResearchCenterCard 
-                  title="Center for Renewable Energy" 
-                  icon={<BookOpen className="h-10 w-10 text-iare-blue" />}
-                  description="Works on renewable energy sources, energy conservation, and sustainable technologies."
-                  areas={["Solar Energy", "Wind Energy", "Energy Storage", "Smart Grid"]}
-                />
-                
-                <ResearchCenterCard 
-                  title="Center for Data Science and Big Data Analytics" 
-                  icon={<Flask className="h-10 w-10 text-iare-blue" />}
-                  description="Focuses on research in data science, big data analytics, data mining, and their applications in various domains."
-                  areas={["Data Mining", "Predictive Analytics", "Big Data Infrastructure", "Data Visualization"]}
-                />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="flex justify-center mb-4">
+                <div className="bg-iare-blue p-3 rounded-full">
+                  <Lightbulb className="h-8 w-8 text-white" />
+                </div>
               </div>
+              <h3 className="text-center text-lg font-semibold mb-2">Research Vision</h3>
+              <p className="text-gray-700 text-center">
+                To become a center of excellence in research and innovation, contributing to technological advancement and societal development.
+              </p>
             </div>
-          </TabsContent>
-          
-          <TabsContent value="publications" className="space-y-6">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-semibold text-iare-blue mb-4">Research Publications</h2>
-              <p className="text-gray-700 mb-6">
-                IARE has a strong research culture with faculty and students publishing their research in reputed international journals and conferences. Below are some of the recent publications from our institute.
+            
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="flex justify-center mb-4">
+                <div className="bg-iare-blue p-3 rounded-full">
+                  <Award className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-center text-lg font-semibold mb-2">Recognition</h3>
+              <p className="text-gray-700 text-center">
+                IARE is recognized by various government agencies for its contribution to research and development.
               </p>
-              
-              <div className="mb-6">
-                <h3 className="text-xl font-medium text-iare-blue mb-3">Publication Highlights</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                  <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
-                    <div className="font-medium mb-1">SCI/SCOPUS Indexed Journals</div>
-                    <div className="text-3xl font-bold text-iare-blue">280+</div>
-                    <div className="text-sm text-gray-600">Publications in last 3 years</div>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
-                    <div className="font-medium mb-1">International Conferences</div>
-                    <div className="text-3xl font-bold text-iare-blue">150+</div>
-                    <div className="text-sm text-gray-600">Publications in last 3 years</div>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
-                    <div className="font-medium mb-1">Citation Count</div>
-                    <div className="text-3xl font-bold text-iare-blue">5000+</div>
-                    <div className="text-sm text-gray-600">Total citations</div>
-                  </div>
+            </div>
+            
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="flex justify-center mb-4">
+                <div className="bg-iare-blue p-3 rounded-full">
+                  <BookOpen className="h-8 w-8 text-white" />
                 </div>
               </div>
-              
-              <div className="mb-8">
-                <h3 className="text-xl font-medium text-iare-blue mb-3">Recent Journal Publications</h3>
-                <div className="space-y-4">
-                  <Publication 
-                    title="A Novel Approach for Sentiment Analysis Using Deep Learning Techniques" 
-                    authors="Kumar, A., Sharma, S., Reddy, P."
-                    journal="IEEE Transactions on Neural Networks and Learning Systems"
-                    year="2023"
-                    doi="10.1109/TNNLS.2023.1234567"
-                  />
-                  
-                  <Publication 
-                    title="Energy-Efficient Routing Protocol for IoT-Based Smart Grids" 
-                    authors="Rao, V., Raman, D., Singh, K."
-                    journal="International Journal of Sensor Networks"
-                    year="2023"
-                    doi="10.1016/j.ijsnet.2023.789012"
-                  />
-                  
-                  <Publication 
-                    title="Multi-Objective Optimization of Manufacturing Processes Using Evolutionary Algorithms" 
-                    authors="Sharma, R., Gupta, S., Reddy, C."
-                    journal="Journal of Manufacturing Systems"
-                    year="2022"
-                    doi="10.1016/j.jmsy.2022.345678"
-                  />
-                  
-                  <Publication 
-                    title="Secure Authentication Protocol for IoT Devices Using Blockchain Technology" 
-                    authors="Prasad, N., Kumar, L., Verma, S."
-                    journal="IEEE Internet of Things Journal"
-                    year="2022"
-                    doi="10.1109/JIOT.2022.9876543"
-                  />
-                  
-                  <Publication 
-                    title="Design and Analysis of Low-Power VLSI Circuits for Biomedical Applications" 
-                    authors="Patil, M., Reddy, N., Johnson, P."
-                    journal="Microelectronics Journal"
-                    year="2022"
-                    doi="10.1016/j.mejo.2022.234567"
-                  />
-                </div>
-                
-                <div className="mt-4 text-right">
-                  <a href="#" className="text-iare-blue hover:underline text-sm">View All Publications</a>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium text-iare-blue mb-3">Research Collaborations</h3>
+              <h3 className="text-center text-lg font-semibold mb-2">Publications</h3>
+              <p className="text-gray-700 text-center">
+                Our faculty and students have published over 500 research papers in national and international journals.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div id="centers" className="mb-12">
+          <h2 className="text-2xl font-semibold text-iare-blue mb-6">Research Centers</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="bg-gradient-to-r from-iare-blue to-blue-700 h-3"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3">Center for AI and Machine Learning</h3>
                 <p className="text-gray-700 mb-4">
-                  IARE has established research collaborations with several national and international universities, research institutions, and industry partners to promote collaborative research and knowledge exchange.
+                  The Center focuses on developing innovative AI solutions for complex problems in various domains including healthcare, transportation, and cybersecurity.
                 </p>
-                
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="bg-gray-50 p-3 rounded-md border border-gray-200 text-center">
-                    <div className="font-medium">University of California</div>
-                    <div className="text-xs text-gray-600">USA</div>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-3 rounded-md border border-gray-200 text-center">
-                    <div className="font-medium">Technical University of Munich</div>
-                    <div className="text-xs text-gray-600">Germany</div>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-3 rounded-md border border-gray-200 text-center">
-                    <div className="font-medium">Nanyang Technological University</div>
-                    <div className="text-xs text-gray-600">Singapore</div>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-3 rounded-md border border-gray-200 text-center">
-                    <div className="font-medium">Indian Institute of Science</div>
-                    <div className="text-xs text-gray-600">India</div>
-                  </div>
+                <div className="text-sm text-gray-600">
+                  <p><strong>Head:</strong> Dr. Rajesh Kumar</p>
+                  <p><strong>Established:</strong> 2018</p>
+                  <p><strong>Location:</strong> Block A, 3rd Floor</p>
                 </div>
               </div>
             </div>
-          </TabsContent>
-          
-          <TabsContent value="patents" className="space-y-6">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-semibold text-iare-blue mb-4">Patents and Intellectual Property</h2>
-              <p className="text-gray-700 mb-6">
-                IARE encourages faculty and students to convert their innovative research into patents and intellectual property. The institute has an Intellectual Property Rights (IPR) Cell that provides guidance and support for filing patents.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="border border-gray-200 rounded-lg p-6 text-center">
-                  <div className="text-3xl font-bold text-iare-blue mb-2">45+</div>
-                  <div className="font-medium">Patents Filed</div>
-                </div>
-                
-                <div className="border border-gray-200 rounded-lg p-6 text-center">
-                  <div className="text-3xl font-bold text-iare-blue mb-2">18</div>
-                  <div className="font-medium">Patents Granted</div>
-                </div>
-                
-                <div className="border border-gray-200 rounded-lg p-6 text-center">
-                  <div className="text-3xl font-bold text-iare-blue mb-2">12</div>
-                  <div className="font-medium">Commercialized Patents</div>
-                </div>
-              </div>
-              
-              <div className="mb-8">
-                <h3 className="text-xl font-medium text-iare-blue mb-3">Recent Patents</h3>
-                <div className="space-y-4">
-                  <Patent 
-                    title="Smart Security System with Real-time Threat Detection using AI" 
-                    inventors="Dr. Suresh Kumar, Dr. Ravi Shankar"
-                    number="IN202141023456"
-                    status="Granted"
-                    year="2022"
-                  />
-                  
-                  <Patent 
-                    title="IoT-Based Precision Agriculture Monitoring System" 
-                    inventors="Dr. Priya Sharma, Dr. Kiran Reddy"
-                    number="IN202141078901"
-                    status="Filed"
-                    year="2021"
-                  />
-                  
-                  <Patent 
-                    title="Energy Efficient Routing Protocol for Wireless Sensor Networks" 
-                    inventors="Dr. Venkat Rao, Dr. Deepak Sharma"
-                    number="IN202041056789"
-                    status="Granted"
-                    year="2021"
-                  />
-                  
-                  <Patent 
-                    title="Blockchain-Based Secure Data Sharing in Healthcare" 
-                    inventors="Dr. Rohit Verma, Dr. Sheela Desai"
-                    number="IN202041023456"
-                    status="Granted"
-                    year="2020"
-                  />
-                  
-                  <Patent 
-                    title="Low-Cost Water Quality Monitoring System" 
-                    inventors="Dr. Rajesh Kumar, Prof. Neeraj Singh"
-                    number="IN201941034567"
-                    status="Granted"
-                    year="2020"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium text-iare-blue mb-3">Intellectual Property Rights (IPR) Cell</h3>
+            
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="bg-gradient-to-r from-iare-blue to-blue-700 h-3"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3">Aerospace Research and Innovation Center</h3>
                 <p className="text-gray-700 mb-4">
-                  The IPR Cell at IARE provides comprehensive support for protecting intellectual property created by faculty and students. The cell offers the following services:
+                  This center focuses on research in aircraft design, propulsion systems, and aerospace materials to advance the field of aeronautical engineering.
                 </p>
-                
-                <ul className="list-disc pl-5 text-gray-700 space-y-2 mb-4">
-                  <li>Awareness programs on intellectual property rights</li>
-                  <li>Technical and legal assistance for patent filing</li>
-                  <li>Support for patent search and drafting</li>
-                  <li>Guidance for commercialization of patents</li>
-                  <li>Training on intellectual property management</li>
-                </ul>
-                
-                <p className="text-gray-700">
-                  For more information about the IPR Cell and patent filing process, please contact:
-                  <a href="mailto:ipr@iare.ac.in" className="text-iare-blue hover:underline ml-2">ipr@iare.ac.in</a>
-                </p>
+                <div className="text-sm text-gray-600">
+                  <p><strong>Head:</strong> Dr. Anand Singh</p>
+                  <p><strong>Established:</strong> 2010</p>
+                  <p><strong>Location:</strong> Block B, Ground Floor</p>
+                </div>
               </div>
             </div>
-          </TabsContent>
-          
-          <TabsContent value="projects" className="space-y-6">
+            
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="bg-gradient-to-r from-iare-blue to-blue-700 h-3"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3">Robotics and Automation Research Lab</h3>
+                <p className="text-gray-700 mb-4">
+                  The lab is dedicated to advancing the field of robotics through research in areas such as autonomous systems, human-robot interaction, and industrial automation.
+                </p>
+                <div className="text-sm text-gray-600">
+                  <p><strong>Head:</strong> Dr. Priya Sharma</p>
+                  <p><strong>Established:</strong> 2015</p>
+                  <p><strong>Location:</strong> Block C, 2nd Floor</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="bg-gradient-to-r from-iare-blue to-blue-700 h-3"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3">Center for Renewable Energy Research</h3>
+                <p className="text-gray-700 mb-4">
+                  This center conducts research on sustainable energy solutions, including solar, wind, and biomass energy, to address global energy challenges.
+                </p>
+                <div className="text-sm text-gray-600">
+                  <p><strong>Head:</strong> Dr. Sunil Patel</p>
+                  <p><strong>Established:</strong> 2016</p>
+                  <p><strong>Location:</strong> Block D, 1st Floor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="publications" className="mb-12">
+          <h2 className="text-2xl font-semibold text-iare-blue mb-6">Recent Publications</h2>
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Title</th>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Authors</th>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Journal/Conference</th>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="py-3 px-4 text-sm">Machine Learning Approaches for Predictive Maintenance in Aviation</td>
+                    <td className="py-3 px-4 text-sm">Dr. Rajesh Kumar, Dr. Aruna Singh</td>
+                    <td className="py-3 px-4 text-sm">International Journal of Aerospace Engineering</td>
+                    <td className="py-3 px-4 text-sm">2023</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4 text-sm">Design and Analysis of Lightweight Materials for Aircraft Structures</td>
+                    <td className="py-3 px-4 text-sm">Dr. Anand Singh, S. Venkat, P. Reddy</td>
+                    <td className="py-3 px-4 text-sm">Journal of Materials Science and Engineering</td>
+                    <td className="py-3 px-4 text-sm">2023</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4 text-sm">Advanced Control Systems for Autonomous Drones</td>
+                    <td className="py-3 px-4 text-sm">Dr. Priya Sharma, Dr. Neeraj Verma</td>
+                    <td className="py-3 px-4 text-sm">IEEE Conference on Robotics and Automation</td>
+                    <td className="py-3 px-4 text-sm">2022</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4 text-sm">Solar Energy Integration with Smart Grid: Challenges and Solutions</td>
+                    <td className="py-3 px-4 text-sm">Dr. Sunil Patel, K. Mehta</td>
+                    <td className="py-3 px-4 text-sm">Renewable Energy Journal</td>
+                    <td className="py-3 px-4 text-sm">2022</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 text-sm">Efficient Algorithms for Air Traffic Management</td>
+                    <td className="py-3 px-4 text-sm">Dr. Rajesh Kumar, P. Singh, S. Kumar</td>
+                    <td className="py-3 px-4 text-sm">Transportation Research Part C</td>
+                    <td className="py-3 px-4 text-sm">2021</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <div id="patents" className="mb-12">
+          <h2 className="text-2xl font-semibold text-iare-blue mb-6">Patents</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-semibold text-iare-blue mb-4">Funded Research Projects</h2>
-              <p className="text-gray-700 mb-6">
-                IARE has secured several funded research projects from various government and non-government funding agencies. These projects contribute significantly to the research ecosystem of the institute.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="border border-gray-200 rounded-lg p-6 text-center">
-                  <div className="text-3xl font-bold text-iare-blue mb-2">₹12+ Cr</div>
-                  <div className="font-medium">Total Project Funding</div>
+              <div className="flex items-start mb-4">
+                <div className="bg-iare-blue p-2 rounded-full mr-4 mt-1">
+                  <FileText className="h-5 w-5 text-white" />
                 </div>
-                
-                <div className="border border-gray-200 rounded-lg p-6 text-center">
-                  <div className="text-3xl font-bold text-iare-blue mb-2">25+</div>
-                  <div className="font-medium">Ongoing Projects</div>
-                </div>
-                
-                <div className="border border-gray-200 rounded-lg p-6 text-center">
-                  <div className="text-3xl font-bold text-iare-blue mb-2">40+</div>
-                  <div className="font-medium">Completed Projects</div>
-                </div>
-              </div>
-              
-              <div className="mb-8">
-                <h3 className="text-xl font-medium text-iare-blue mb-3">Major Funding Agencies</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                  <div className="bg-gray-50 p-3 rounded-md border border-gray-200 text-center">
-                    <div className="font-medium">DST</div>
-                    <div className="text-xs text-gray-600">Dept. of Science & Technology</div>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-3 rounded-md border border-gray-200 text-center">
-                    <div className="font-medium">SERB</div>
-                    <div className="text-xs text-gray-600">Science & Engineering Research Board</div>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-3 rounded-md border border-gray-200 text-center">
-                    <div className="font-medium">AICTE</div>
-                    <div className="text-xs text-gray-600">All India Council for Technical Education</div>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-3 rounded-md border border-gray-200 text-center">
-                    <div className="font-medium">UGC</div>
-                    <div className="text-xs text-gray-600">University Grants Commission</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium text-iare-blue mb-3">Significant Funded Projects</h3>
-                <div className="space-y-4">
-                  <FundedProject 
-                    title="Development of AI-based Smart Grid Management System" 
-                    investigators="Dr. Venkat Rao, Dr. Srikanth Reddy"
-                    agency="DST"
-                    amount="₹1.2 Crores"
-                    duration="2021-2024"
-                  />
-                  
-                  <FundedProject 
-                    title="IoT-Based Environmental Monitoring System for Smart Cities" 
-                    investigators="Dr. Priya Sharma, Dr. Rahul Verma"
-                    agency="AICTE"
-                    amount="₹25 Lakhs"
-                    duration="2022-2024"
-                  />
-                  
-                  <FundedProject 
-                    title="Blockchain Technology for Secure Healthcare Data Management" 
-                    investigators="Dr. Suresh Kumar, Dr. Neha Gupta"
-                    agency="SERB"
-                    amount="₹35 Lakhs"
-                    duration="2022-2025"
-                  />
-                  
-                  <FundedProject 
-                    title="Design and Development of Low-Cost Prosthetic Limbs using 3D Printing" 
-                    investigators="Dr. Rajesh Sharma, Dr. Vinay Kumar"
-                    agency="DST"
-                    amount="₹45 Lakhs"
-                    duration="2021-2023"
-                  />
-                  
-                  <FundedProject 
-                    title="Natural Language Processing for Regional Indian Languages" 
-                    investigators="Dr. Deepa Reddy, Dr. Prakash Singh"
-                    agency="UGC"
-                    amount="₹18 Lakhs"
-                    duration="2022-2024"
-                  />
-                </div>
-                
-                <div className="mt-4 text-right">
-                  <a href="#" className="text-iare-blue hover:underline text-sm">View All Projects</a>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Method and Apparatus for Aircraft Fuel Efficiency Optimization</h3>
+                  <p className="text-gray-700 text-sm mb-1"><strong>Inventors:</strong> Dr. Anand Singh, Dr. Rajesh Kumar</p>
+                  <p className="text-gray-700 text-sm mb-1"><strong>Patent No:</strong> IN2021000123</p>
+                  <p className="text-gray-700 text-sm"><strong>Year:</strong> 2021</p>
                 </div>
               </div>
             </div>
-          </TabsContent>
-        </Tabs>
+            
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex items-start mb-4">
+                <div className="bg-iare-blue p-2 rounded-full mr-4 mt-1">
+                  <FileText className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Artificial Intelligence Based Predictive Maintenance System</h3>
+                  <p className="text-gray-700 text-sm mb-1"><strong>Inventors:</strong> Dr. Priya Sharma, Dr. Neeraj Verma</p>
+                  <p className="text-gray-700 text-sm mb-1"><strong>Patent No:</strong> US2022056789</p>
+                  <p className="text-gray-700 text-sm"><strong>Year:</strong> 2022</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex items-start mb-4">
+                <div className="bg-iare-blue p-2 rounded-full mr-4 mt-1">
+                  <FileText className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Hybrid Solar Energy Harvesting System</h3>
+                  <p className="text-gray-700 text-sm mb-1"><strong>Inventors:</strong> Dr. Sunil Patel, K. Mehta</p>
+                  <p className="text-gray-700 text-sm mb-1"><strong>Patent No:</strong> IN2022000456</p>
+                  <p className="text-gray-700 text-sm"><strong>Year:</strong> 2022</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex items-start mb-4">
+                <div className="bg-iare-blue p-2 rounded-full mr-4 mt-1">
+                  <FileText className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Autonomous Navigation System for Indoor Robots</h3>
+                  <p className="text-gray-700 text-sm mb-1"><strong>Inventors:</strong> Dr. Rajesh Kumar, S. Kumar</p>
+                  <p className="text-gray-700 text-sm mb-1"><strong>Patent No:</strong> US2023012345</p>
+                  <p className="text-gray-700 text-sm"><strong>Year:</strong> 2023</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="projects" className="mb-12">
+          <h2 className="text-2xl font-semibold text-iare-blue mb-6">Funded Projects</h2>
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Project Title</th>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Principal Investigator</th>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Funding Agency</th>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Amount (₹)</th>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="py-3 px-4 text-sm">Development of AI-based Air Traffic Management System</td>
+                    <td className="py-3 px-4 text-sm">Dr. Rajesh Kumar</td>
+                    <td className="py-3 px-4 text-sm">DST</td>
+                    <td className="py-3 px-4 text-sm">₹75 Lakhs</td>
+                    <td className="py-3 px-4 text-sm">2022-2025</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4 text-sm">Advanced Materials for Aircraft Structures</td>
+                    <td className="py-3 px-4 text-sm">Dr. Anand Singh</td>
+                    <td className="py-3 px-4 text-sm">DRDO</td>
+                    <td className="py-3 px-4 text-sm">₹120 Lakhs</td>
+                    <td className="py-3 px-4 text-sm">2021-2024</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4 text-sm">Autonomous Drones for Disaster Management</td>
+                    <td className="py-3 px-4 text-sm">Dr. Priya Sharma</td>
+                    <td className="py-3 px-4 text-sm">CSIR</td>
+                    <td className="py-3 px-4 text-sm">₹60 Lakhs</td>
+                    <td className="py-3 px-4 text-sm">2022-2024</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4 text-sm">Smart Grid Integration with Renewable Energy Sources</td>
+                    <td className="py-3 px-4 text-sm">Dr. Sunil Patel</td>
+                    <td className="py-3 px-4 text-sm">MNRE</td>
+                    <td className="py-3 px-4 text-sm">₹90 Lakhs</td>
+                    <td className="py-3 px-4 text-sm">2020-2023</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 text-sm">IoT Based Monitoring System for Aircraft Maintenance</td>
+                    <td className="py-3 px-4 text-sm">Dr. Neeraj Verma</td>
+                    <td className="py-3 px-4 text-sm">AICTE</td>
+                    <td className="py-3 px-4 text-sm">₹45 Lakhs</td>
+                    <td className="py-3 px-4 text-sm">2021-2023</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
       
       <Footer />
-    </div>
-  );
-};
-
-// Research Center Card Component
-const ResearchCenterCard = ({ title, icon, description, areas }: { title: string, icon: React.ReactNode, description: string, areas: string[] }) => {
-  return (
-    <div className="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
-      <div className="flex items-start mb-3">
-        <div className="mr-3">{icon}</div>
-        <h3 className="text-lg font-medium">{title}</h3>
-      </div>
-      <p className="text-gray-700 text-sm mb-3">{description}</p>
-      <div>
-        <h4 className="font-medium text-sm mb-2">Research Areas:</h4>
-        <div className="flex flex-wrap gap-2">
-          {areas.map((area, index) => (
-            <span key={index} className="bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-xs">
-              {area}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Publication Component
-const Publication = ({ title, authors, journal, year, doi }: { title: string, authors: string, journal: string, year: string, doi: string }) => {
-  return (
-    <div className="border-b border-gray-200 pb-3">
-      <h4 className="font-medium mb-1">{title}</h4>
-      <p className="text-sm text-gray-700 mb-1">{authors}</p>
-      <div className="flex flex-wrap justify-between text-xs text-gray-600">
-        <span>{journal}, {year}</span>
-        <span>DOI: {doi}</span>
-      </div>
-    </div>
-  );
-};
-
-// Patent Component
-const Patent = ({ title, inventors, number, status, year }: { title: string, inventors: string, number: string, status: string, year: string }) => {
-  return (
-    <div className="border-b border-gray-200 pb-3">
-      <h4 className="font-medium mb-1">{title}</h4>
-      <p className="text-sm text-gray-700 mb-1">Inventors: {inventors}</p>
-      <div className="flex flex-wrap justify-between text-xs text-gray-600">
-        <span>Patent No: {number}</span>
-        <span className={status === "Granted" ? "text-green-600 font-medium" : "text-orange-500 font-medium"}>
-          {status}, {year}
-        </span>
-      </div>
-    </div>
-  );
-};
-
-// Funded Project Component
-const FundedProject = ({ title, investigators, agency, amount, duration }: { title: string, investigators: string, agency: string, amount: string, duration: string }) => {
-  return (
-    <div className="border-b border-gray-200 pb-3">
-      <h4 className="font-medium mb-1">{title}</h4>
-      <p className="text-sm text-gray-700 mb-1">Principal Investigators: {investigators}</p>
-      <div className="flex flex-wrap justify-between text-xs text-gray-600">
-        <span>Funding Agency: {agency}</span>
-        <span>Amount: {amount}</span>
-        <span>Duration: {duration}</span>
-      </div>
     </div>
   );
 };

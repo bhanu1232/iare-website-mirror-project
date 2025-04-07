@@ -1,11 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown, Search, Phone, Mail } from 'lucide-react';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,7 +106,7 @@ const Header = () => {
         <div className="fixed inset-0 z-50 bg-white overflow-y-auto">
           <div className="container mx-auto px-4 py-4">
             <div className="flex justify-between items-center mb-6">
-              <Link to="/" className="flex items-center">
+              <Link to="/" className="flex items-center" onClick={toggleMenu}>
                 <img 
                   src="https://www.iare.ac.in/sites/default/files/IARE-Logonew.png" 
                   alt="IARE Logo" 
@@ -130,6 +131,7 @@ const Header = () => {
                   { name: 'Principal', url: '/about#principal' },
                   { name: 'Administration', url: '/about#administration' }
                 ]} 
+                closeMenu={toggleMenu}
               />
               <MobileNavItem 
                 title="Academics" 
@@ -140,6 +142,7 @@ const Header = () => {
                   { name: 'Academic Calendar', url: '/academics#calendar' },
                   { name: 'Regulations', url: '/academics#regulations' }
                 ]} 
+                closeMenu={toggleMenu}
               />
               <MobileNavItem 
                 title="Admissions" 
@@ -150,6 +153,7 @@ const Header = () => {
                   { name: 'Fee Structure', url: '/admissions#fees' },
                   { name: 'Scholarships', url: '/admissions#scholarships' }
                 ]} 
+                closeMenu={toggleMenu}
               />
               <MobileNavItem 
                 title="Research" 
@@ -160,6 +164,7 @@ const Header = () => {
                   { name: 'Patents', url: '/research#patents' },
                   { name: 'Funded Projects', url: '/research#projects' }
                 ]} 
+                closeMenu={toggleMenu}
               />
               <MobileNavItem 
                 title="Campus Life" 
@@ -170,6 +175,7 @@ const Header = () => {
                   { name: 'Sports', url: '/campus-life#sports' },
                   { name: 'Facilities', url: '/campus-life#facilities' }
                 ]} 
+                closeMenu={toggleMenu}
               />
               <Link 
                 to="/contact" 
@@ -192,26 +198,36 @@ interface NavLink {
 }
 
 const NavItem = ({ title, to, links }: { title: string, to: string, links: NavLink[] }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const navigate = useNavigate();
+  
+  const handleLinkClick = (url: string) => {
+    navigate(url);
+  };
 
   return (
     <div
       className="relative group"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
       <Link to={to} className="flex items-center text-gray-800 hover:text-iare-blue font-medium">
         {title}
         <ChevronDown className="h-4 w-4 ml-1" />
       </Link>
-      {isOpen && (
-        <div className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden z-50">
+      {isHovering && (
+        <div 
+          className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden z-50"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
           <div className="py-2">
             {links.map((link, index) => (
               <Link
                 key={index}
                 to={link.url}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-iare-blue hover:text-white"
+                onClick={() => handleLinkClick(link.url)}
               >
                 {link.name}
               </Link>
@@ -227,15 +243,27 @@ interface MobileNavItemProps {
   title: string;
   to: string;
   links: NavLink[];
+  closeMenu: () => void;
 }
 
-const MobileNavItem = ({ title, to, links }: MobileNavItemProps) => {
+const MobileNavItem = ({ title, to, links, closeMenu }: MobileNavItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleMainLinkClick = () => {
+    navigate(to);
+    closeMenu();
+  };
+
+  const handleSubLinkClick = (url: string) => {
+    navigate(url);
+    closeMenu();
+  };
 
   return (
     <div>
       <div className="flex items-center justify-between w-full py-2">
-        <Link to={to} className="text-gray-800 font-medium">{title}</Link>
+        <Link to={to} className="text-gray-800 font-medium" onClick={handleMainLinkClick}>{title}</Link>
         <button 
           className="text-gray-500"
           onClick={() => setIsOpen(!isOpen)}
@@ -250,6 +278,7 @@ const MobileNavItem = ({ title, to, links }: MobileNavItemProps) => {
               key={index}
               to={link.url}
               className="block py-2 text-sm text-gray-700 hover:text-iare-blue"
+              onClick={() => handleSubLinkClick(link.url)}
             >
               {link.name}
             </Link>
