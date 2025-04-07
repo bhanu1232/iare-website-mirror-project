@@ -22,14 +22,14 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full">
+    <header className="w-full z-40">
       {/* Top Bar */}
-      <div className="bg-iare-blue text-white py-2">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm">
-          <div className="flex items-center mb-2 md:mb-0">
-            <Phone className="h-4 w-4 mr-1" />
+      <div className="bg-iare-blue text-white py-1">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs">
+          <div className="flex items-center mb-1 md:mb-0">
+            <Phone className="h-3 w-3 mr-1" />
             <span className="mr-4">+91 9871234567</span>
-            <Mail className="h-4 w-4 mr-1" />
+            <Mail className="h-3 w-3 mr-1" />
             <span>info@iare.ac.in</span>
           </div>
           <div className="flex space-x-4">
@@ -41,13 +41,13 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <div className={`bg-white py-4 shadow-md transition-all ${isScrolled ? 'sticky top-0 z-50' : ''}`}>
+      <div className={`bg-white py-2 shadow-md transition-all ${isScrolled ? 'sticky top-0 z-50' : ''}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
           <Link to="/" className="flex items-center">
             <img 
               src="https://www.iare.ac.in/sites/default/files/IARE-Logonew.png" 
               alt="IARE Logo" 
-              className="h-16" 
+              className="h-12" 
             />
           </Link>
 
@@ -77,6 +77,14 @@ const Header = () => {
               { name: 'Publications', url: '/research#publications' },
               { name: 'Patents', url: '/research#patents' },
               { name: 'Funded Projects', url: '/research#projects' }
+            ]} />
+            <NavItem title="Student Services" to="/student-services" links={[
+              { name: 'Examination', url: '/student-services/examination' },
+              { name: 'Library', url: '/student-services/library' },
+              { name: 'Placements', url: '/student-services/placements' },
+              { name: 'Hostel', url: '/student-services/hostel' },
+              { name: 'Transportation', url: '/student-services/transportation' },
+              { name: 'Scholarships', url: '/student-services/scholarships' }
             ]} />
             <NavItem title="Campus Life" to="/campus-life" links={[
               { name: 'Clubs', url: '/campus-life#clubs' },
@@ -167,6 +175,19 @@ const Header = () => {
                 closeMenu={toggleMenu}
               />
               <MobileNavItem 
+                title="Student Services" 
+                to="/student-services" 
+                links={[
+                  { name: 'Examination', url: '/student-services/examination' },
+                  { name: 'Library', url: '/student-services/library' },
+                  { name: 'Placements', url: '/student-services/placements' },
+                  { name: 'Hostel', url: '/student-services/hostel' },
+                  { name: 'Transportation', url: '/student-services/transportation' },
+                  { name: 'Scholarships', url: '/student-services/scholarships' }
+                ]} 
+                closeMenu={toggleMenu}
+              />
+              <MobileNavItem 
                 title="Campus Life" 
                 to="/campus-life" 
                 links={[
@@ -201,7 +222,8 @@ const NavItem = ({ title, to, links }: { title: string, to: string, links: NavLi
   const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
   
-  const handleLinkClick = (url: string) => {
+  const handleLinkClick = (url: string, e: React.MouseEvent) => {
+    e.preventDefault();
     navigate(url);
   };
 
@@ -227,7 +249,6 @@ const NavItem = ({ title, to, links }: { title: string, to: string, links: NavLi
                 key={index}
                 to={link.url}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-iare-blue hover:text-white"
-                onClick={() => handleLinkClick(link.url)}
               >
                 {link.name}
               </Link>
@@ -250,12 +271,14 @@ const MobileNavItem = ({ title, to, links, closeMenu }: MobileNavItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleMainLinkClick = () => {
+  const handleMainLinkClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     navigate(to);
     closeMenu();
   };
 
-  const handleSubLinkClick = (url: string) => {
+  const handleSubLinkClick = (url: string, e: React.MouseEvent) => {
+    e.preventDefault();
     navigate(url);
     closeMenu();
   };
@@ -278,7 +301,7 @@ const MobileNavItem = ({ title, to, links, closeMenu }: MobileNavItemProps) => {
               key={index}
               to={link.url}
               className="block py-2 text-sm text-gray-700 hover:text-iare-blue"
-              onClick={() => handleSubLinkClick(link.url)}
+              onClick={(e) => handleSubLinkClick(link.url, e)}
             >
               {link.name}
             </Link>
